@@ -1,0 +1,21 @@
+{
+  "UI": {
+    "Search": "Поиск",
+    "Price": "Цена",
+    "All": "Все",
+    "SortAsc": "По возрастанию",
+    "SortDesc": "По убыванию",
+    "WithoutSort": "Без сортировки",
+    "Categories": {
+      "Kitchen": "Кухня",
+      "Bedroom": "Спальня",
+      "Bath": "Ванная"
+    },
+    "Colors": {
+      "All": "Все",
+      "Black": "Черный",
+      "White": "Белый",
+      "Wood": "Дерево"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "UI": {
+    "Search": "Search",
+    "Price": "Price",
+    "All": "All",
+    "Color": "Color",
+    "SortAsc": "Ascending",
+    "SortDesc": "Descending",
+    "WithoutSort": "Without sorting",
+    "Categories": {
+      "Kitchen": "Kitchen",
+      "Bedroom": "Bedroom",
+      "Bath": "Bathroom"
+    },
+    "SortOptions": {
+      "None": "without sorting",
+      "Asc": "Ascending",
+      "Desc": "Descending"
+    },
+    "Colors": {
+      "All": "All",
+      "Black": "Black",
+      "White": "White",
+      "Wood": "Wood"
+    }
+  }
+}
