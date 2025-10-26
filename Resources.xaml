@@ -1,0 +1,94 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:mywpf">
+    <SolidColorBrush x:Key="HeaderBackgroundBrush" Color="LightGray"/>
+    <!--<local:StringToBoolConverter x:Key="StringToBoolConverter"/>
+    <local:PriceFilterConverter x:Key="PriceFilterConverter"/>-->
+    <local:ImagePathConverter x:Key="ImagePathConverter" />
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    <Style x:Key="LanguageButtonStyle" TargetType="Button">
+        <Setter Property="Width" Value="80"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Margin" Value="5,0"/>
+        <Setter Property="Background" Value="#FFDDDDDD"/>
+        <Setter Property="BorderBrush" Value="#FF999999"/>
+    </Style>
+    <Style x:Key="IconButtonStyle" TargetType="Button">
+        <Setter Property="Width" Value="40"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Background" Value="LightGray"/>
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+    <Style x:Key="ProductCardStyle" TargetType="Border">
+        <Setter Property="Width" Value="400"/>
+        <Setter Property="Height" Value="380"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="BorderBrush" Value="Gray"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+    
+    
+<!--пользовательский шаблон для кнопки корзины-->
+    <Style x:Key="IconOnlyButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border" 
+                        CornerRadius="20" 
+                        Background="{TemplateBinding Background}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        BorderBrush="{TemplateBinding BorderBrush}">
+
+                        <!-- Тень (опционально) -->
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="5" ShadowDepth="2" Color="#20000000"/>
+                        </Border.Effect>
+
+                        <!-- Контейнер для изображения -->
+                        <Image x:Name="iconImage"
+                           Source="D:\проекты 4 сем\ООП\лаб 4-5\mywpf\bin\Debug\Images\add.jpg"
+                           Width="20"
+                           Height="20"
+                           Stretch="Uniform"/>
+                    </Border>
+
+                    <!-- Анимации и триггеры -->
+                    <ControlTemplate.Triggers>
+                        <!-- Эффект при наведении -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#10000000"/>
+                        </Trigger>
+
+                        <!-- Эффект при нажатии -->
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="iconImage" Property="RenderTransform">
+                                <Setter.Value>
+                                    <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="iconImage" Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="ProductTextStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+    <!--<Style x:Key="IconOnlyButtonStyle" TargetType="Button">
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Background" Value="#F0F0F0"/>
+        <Setter Property="BorderBrush" Value="#CCCCCC"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>-->
+
+</ResourceDictionary>

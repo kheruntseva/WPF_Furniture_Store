@@ -1,0 +1,119 @@
+﻿<!--<Window x:Class="mywpf.ProductDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Подробности товара" 
+        Height="600" 
+        Width="800"
+        WindowStartupLocation="CenterScreen">
+    --><!--<Window.Resources>
+        <local:ImagePathConverter x:Key="ImagePathConverter" />
+    </Window.Resources>--><!--
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        --><!-- Left: Product Image --><!--
+        <Image Grid.Column="0" 
+               Source="{Binding Product.Image, Converter={StaticResource ImagePathConverter}}" 
+               Stretch="Uniform" 
+               Margin="10" 
+               MaxHeight="500" 
+               MaxWidth="400" />
+
+        --><!-- Right: Product Details --><!--
+        <StackPanel Grid.Column="1" Margin="10">
+            <TextBlock Text="{Binding Product.Name}" 
+                       FontSize="24" 
+                       FontWeight="Bold" 
+                       Margin="0 0 0 10"/>
+            <TextBlock Text="{Binding Product.Description}" 
+                       FontSize="16" 
+                       TextWrapping="Wrap" 
+                       Margin="0 0 0 10"/>
+            <TextBlock Text="{Binding Product.Price, StringFormat=Цена: {0:C}}" 
+                       FontSize="18" 
+                       FontWeight="SemiBold" 
+                       Margin="0 0 0 20"/>
+            <Button Content="В корзину"
+                    HorizontalAlignment="Right"
+                    Margin="5"
+                    Style="{StaticResource IconOnlyButtonStyle}"
+                    Command="{Binding AddToCartCommand}"
+                    CommandParameter="{Binding Product}"
+                    Width="150" />
+        </StackPanel>
+    </Grid>
+</Window>-->
+<Window x:Class="mywpf.ProductDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Подробности товара" 
+        Height="600" 
+        Width="800"
+        WindowStartupLocation="CenterScreen">
+    <!--<Window.Resources>
+        <local:ImagePathConverter x:Key="ImagePathConverter" />
+    </Window.Resources>-->
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Left: Product Image -->
+        <Image Grid.Column="0" 
+               Source="{Binding Product.Image, Converter={StaticResource ImagePathConverter}}" 
+               Stretch="Uniform" 
+               Margin="10" 
+               MaxHeight="500" 
+               MaxWidth="400" />
+
+        <!-- Right: Product Details and Reviews -->
+        <StackPanel Grid.Column="1" Margin="10">
+            <TextBlock Text="{Binding Product.Name}" 
+                       FontSize="24" 
+                       FontWeight="Bold" 
+                       Margin="0 0 0 10"/>
+            <TextBlock Text="{Binding Product.Description}" 
+                       FontSize="16" 
+                       TextWrapping="Wrap" 
+                       Margin="0 0 0 10"/>
+            <TextBlock Text="{Binding Product.Price, StringFormat=Цена: {0:C}}" 
+                       FontSize="18" 
+                       FontWeight="SemiBold" 
+                       Margin="0 0 0 20"/>
+            <Button Content="В корзину"
+                    HorizontalAlignment="Right"
+                    Margin="5"
+                    Style="{StaticResource IconOnlyButtonStyle}"
+                    Command="{Binding AddToCartCommand}"
+                    CommandParameter="{Binding Product}"
+                    Width="150" />
+            <!-- Reviews -->
+            <GroupBox Header="Отзывы" Margin="0,10,0,0" MaxHeight="300">
+                <ListView ItemsSource="{Binding Reviews}" BorderThickness="0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="5">
+                                <TextBlock Text="{Binding User.Username, StringFormat=Пользователь: {0}}" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding Rating, StringFormat=Оценка: {0}/5}"/>
+                                <TextBlock Text="{Binding ReviewText}" TextWrapping="Wrap" MaxWidth="350"/>
+                                <TextBlock Text="{Binding ReviewDate, StringFormat=Дата: {0:dd.MM.yyyy HH:mm}}" FontStyle="Italic"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+</Window>
